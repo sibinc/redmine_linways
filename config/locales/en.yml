@@ -1,0 +1,9 @@
+en:
+  redmine_linways:
+    # General plugin labels
+    plugin_name: "Redmine Linways API"
+    api:
+      errors:
+        unauthorized: "Unauthorized access"
+        forbidden: "Access denied"
+        not_found: "Resource not found"
