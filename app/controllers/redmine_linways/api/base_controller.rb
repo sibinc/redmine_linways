@@ -1,6 +1,7 @@
 module RedmineLinways
   module Api
     class BaseController < ApplicationController
+      skip_before_action :verify_authenticity_token, if: -> { request.format.json? }
       before_action :authenticate_with_api_key
       before_action :set_cors_headers
       
@@ -16,7 +17,7 @@ module RedmineLinways
           render json: { error: 'Unauthorized' }, status: :unauthorized
         end
       end
-
+      
       # Add CORS headers to allow cross-origin requests
       def set_cors_headers
         headers['Access-Control-Allow-Origin'] = '*'

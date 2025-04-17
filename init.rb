@@ -11,11 +11,13 @@ Redmine::Plugin.register :redmine_linways do
   author 'Sibin C'
   description 'Custom API extensions for Redmine by Linways'
   version RedmineLinways::Version::STRING
-  url 'http://example.com/path/to/plugin'
-  author_url 'http://example.com/about'
+  url 'https://github.com/sibinc/redmine_linways'
+  author_url 'https://github.com/sibinc'
   
-  # Add permissions if needed
-  # permission :example_permission, { controller: actions }, read: true
+  # Add API permissions
+  project_module :issue_tracking do
+    permission :view_allowed_statuses, { "redmine_linways/api/v1/issues": [:allowed_statuses] }
+  end
 end
 
 # Patches to the Redmine core
